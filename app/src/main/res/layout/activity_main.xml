@@ -1,18 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.allanjacob.roomsql.MainActivity">
 
-    <TextView
+
+    <EditText
+        android:id="@+id/name_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="89dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName" />
 
-</android.support.constraint.ConstraintLayout>
+    <EditText
+        android:id="@+id/phone_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/name_id"
+        android:layout_alignStart="@+id/name_id"
+        android:layout_below="@+id/name_id"
+        android:layout_marginTop="34dp"
+        android:ems="10"
+        android:hint="Phone"
+        android:inputType="phone" />
+
+    <Button
+        android:id="@+id/add_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phone_id"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp"
+        android:text="ADD" />
+
+    <Button
+        android:id="@+id/view_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/add_id"
+        android:layout_alignStart="@+id/add_id"
+        android:layout_below="@+id/add_id"
+        android:layout_marginTop="18dp"
+        android:text="VIEW" />
+
+
+</RelativeLayout>

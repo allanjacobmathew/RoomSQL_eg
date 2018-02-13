@@ -25,9 +25,14 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.android.support:cardview-v7:26.1.0'
 
     // Room
     // Room (use 1.1.0-alpha1 for latest alpha)
     implementation "android.arch.persistence.room:runtime:1.0.0"
     annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+
+    //Stetho
+    compile 'com.facebook.stetho:stetho:1.5.0'
 }
