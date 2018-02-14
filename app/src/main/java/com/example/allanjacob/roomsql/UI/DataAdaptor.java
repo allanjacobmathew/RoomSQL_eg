@@ -1,5 +1,8 @@
-package com.example.allanjacob.roomsql;
+package com.example.allanjacob.roomsql.UI;
 
+import android.arch.paging.PagedListAdapter;
+import android.support.annotation.NonNull;
+import android.support.v7.recyclerview.extensions.DiffCallback;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +11,7 @@ import android.widget.TextView;
 
 
 import com.example.allanjacob.roomsql.DataBase.ContactDetails;
+import com.example.allanjacob.roomsql.R;
 
 import java.util.List;
 
@@ -15,12 +19,23 @@ import java.util.List;
  * Created by aduser on 2/12/2018.
  */
 
-public class DataAdaptor extends RecyclerView.Adapter<DataAdaptor.MyViewHolder> {
-    private List<ContactDetails> dataList;
+public class DataAdaptor extends PagedListAdapter<ContactDetails,DataAdaptor.MyViewHolder> {
 
-    public DataAdaptor(List<ContactDetails> dataList) {
-        this.dataList=dataList;
+    private static DiffCallback<ContactDetails> DIFF_CALLBACK = new DiffCallback<ContactDetails>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull ContactDetails oldItem, @NonNull ContactDetails newItem) {
+            return oldItem.getId() == newItem.getId();
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull ContactDetails oldItem, @NonNull ContactDetails newItem) {
+            return oldItem.equals(newItem);
+        }
+    };
+    protected DataAdaptor() {
+        super(DIFF_CALLBACK);
     }
+
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -31,15 +46,10 @@ public class DataAdaptor extends RecyclerView.Adapter<DataAdaptor.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        ContactDetails dataClass = dataList.get(position);
+        ContactDetails dataClass = getItem(position);
         holder.name_id.setText(dataClass.getName());
         holder.phone_id.setText(dataClass.getMobile());
 
-    }
-
-    @Override
-    public int getItemCount() {
-        return dataList.size();
     }
 
 

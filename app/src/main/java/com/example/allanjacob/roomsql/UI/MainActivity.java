@@ -1,4 +1,4 @@
-package com.example.allanjacob.roomsql;
+package com.example.allanjacob.roomsql.UI;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,8 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.allanjacob.roomsql.DataBase.ContactDao;
 import com.example.allanjacob.roomsql.DataBase.ContactDetails;
+import com.example.allanjacob.roomsql.R;
+import com.example.allanjacob.roomsql.RoomApplication;
 
 public class MainActivity extends AppCompatActivity {
     Button add,view;
